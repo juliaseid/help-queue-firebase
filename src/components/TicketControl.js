@@ -32,8 +32,10 @@ class TicketControl extends React.Component {
 
   handleAddingNewTicketToList = (newTicket) => {
     const newMasterTicketList = this.state.masterTicketList.concat(newTicket);
-    this.setState({masterTicketList: newMasterTicketList});
-    this.setState({formVisibleOnPage: false});
+    this.setState({
+      masterTicketList: newMasterTicketList,
+      formVisibleOnPage: false
+    });
   }
 
   handleChangingSelectedTicket = (id) => {
@@ -43,8 +45,10 @@ class TicketControl extends React.Component {
 
   handleDeletingTicket = (id) => {
     const newMasterTicketList = this.state.masterTicketList.filter(ticket => ticket.id !== id);
-    this.setState({masterTicketList: newMasterTicketList});
-    this.setState({selectedTicket: null});
+    this.setState({
+      masterTicketList: newMasterTicketList,
+      selectedTicket: null
+    });
   }
 
   handleEditClick = () => {
@@ -55,9 +59,11 @@ class TicketControl extends React.Component {
     const editedMasterTicketList = this.state.masterTicketList
       .filter(ticket => ticket.id !== this.state.selectedTicket.id)
       .concat(ticketToEdit);
-    this.setState({masterTicketList: editedMasterTicketList});
-    this.setState({editing: false});
-    this.setState({selectedTicket: null});
+    this.setState({
+      masterTicketList: editedMasterTicketList,
+      editing: false,
+      selectedTicket: null
+    });
   }
 
   render(){
